@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model ApiKey {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  provider    String   // e.g., "openai", "gemini", "anthropic"
+  modelGroup  String   @default("general") // To group keys (e.g., "gpt-4", "scaling")
+  status      String   @default("ACTIVE") // ACTIVE, FAILED, DEPLETED
+  errorCount  Int      @default(0)
+  lastUsed    DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  priority    Int      @default(0) // Lower number = higher priority (0 is used first)
+}

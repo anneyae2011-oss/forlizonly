@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cyber-pink: #ff00ff;
+  --color-cyber-dark: #08080c;
+  --color-cyber-glass: rgba(255, 0, 255, 0.05);
+  --font-orbitron: "Orbitron", sans-serif;
+}
+
+:root {
+  --background: #08080c;
+  --foreground: #ffffff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-orbitron), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Effects */
+.glass {
+  background: rgba(255, 0, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 0, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.neon-border {
+  border: 1px solid #ff00ff;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3), inset 0 0 10px rgba(255, 0, 255, 0.2);
+}
+
+.neon-text {
+  color: #ff00ff;
+  text-shadow: 0 0 8px rgba(255, 0, 255, 0.6);
+}
+
+.neon-glow {
+  filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.4));
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
